@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Image slider with multi control | Nothing4us</title>
+  <link rel="stylesheet" href="style11.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+<nav class="navbar">
+        <ul>
+            <li><a href="student_dashboard"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="chat.php"><i class="fas fa-comments"></i> Chat</a></li>
+            <li><a href="assesments.html"><i class="fas fa-tasks"></i> Assessments</a></li>
+            <li><a href="applied_job.php"><i class="fas fa-briefcase"></i> Jobs Applied</a></li>
+            <li><a href="games.html"><i class="fas fa-gamepad"></i> Educational Games</a></li>
+            <li><a href="resume_builder.php"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
+            <li><a href="career_roadmaps.php"><i class="fas fa-map-signs"></i> Career Roadmaps</a></li>
+            <li class="icon"><a href="javascript:void(0);" onclick="toggleNavbar()"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Image slider with multi control | Nothing4us </title>
+  <link rel="stylesheet" href="style11.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style11.css">
+        
+        <title>Slider</title>
+    </head>
+    <body>
+
+    
+        <div class="container"> 
+            <div class="slider">
+
+               <div class="box1 box">
+    <div class="bg"></div>
+    <div class="details">
+        <h1>CodingGame- Coding Challenge</h1>
+        <p>
+            Test your coding skills with CodingGame! This platform offers a variety of coding challengesto help you improve your programming abilities. Whether you're a beginner or an experienced developer, CodingGame has something for everyone. Dive into the coding world and enhance your problem-solving skills.
+        </p>
+        <a href="https://www.codinggame.com" target="_blank" class="check-now-button">Check Now</a>
+    </div>
+    <div class="illustration"><div class="inner"></div></div>
+</div>
+
+<div class="box2 box">
+    <div class="bg"></div>
+    <div class="details">
+        <h1>JigZone- Puzzle Solver</h1>
+        <p>
+            JigZone is a fantastic puzzle-solving platform that challenges your mind with a wide varietyof puzzles. Sharpen your cognitive skills, enjoy beautiful images, and test your ability to
+solve puzzles of different complexities. Embark on a journey of mental stimulation with JigZone!
+        </p>
+        <a href="https://www.jigzone.com" target="_blank" class="checknow5">Check Now</a>
+    </div>
+    <div class="illustration"><div class="inner"></div></div>
+</div>
+
+<!-- Repeat the same structure for other boxes with descriptions for each game -->
+
+<div class="box3 box">
+    <div class="bg"></div>
+    <div class="details">
+        <h1>Quizizz- Quiz Time</h1>
+        <p>
+            Quizizz is an engaging quiz platform that makes learning fun. Challenge yourself with quizzes onvarious topics, compete with friends, and test your knowledge. Explore a world of interactivelearning and enjoy the thrill of quiz time with Quizizz!
+        </p>
+        <a href="https://www.quizizz.com" target="_blank" class="checknow2">Check Now</a>
+    </div>
+    <div class="illustration"><div class="inner"></div></div>
+</div>
+
+<div class="box4 box">
+    <div class="bg"></div>
+    <div class="details">
+        <h1>PHET Interactive Simulations</h1>
+        <p>
+            PHET Interactive Simulations offer a hands-on approach to learning scientific concepts.
+            Explore and interact with virtual simulations that make complex scientific ideas easy to
+            understand. Dive into the world of interactive learning with PHET!
+        </p>
+        <a href="https://phet.colorado.edu" target="_blank" class="checknow3">Check Now</a>
+    </div>
+    <div class="illustration"><div class="inner"></div></div>
+</div>
+
+<div class="box5 box">
+    <div class="bg"></div>
+    <div class="details">
+        <h1>Math Heads</h1>
+        <p>
+            Math Heads is your go-to platform for enhancing your math skills in a fun and interactive way.Solve challenging math problems, play educational games, and become a math whiz with Math Heads!
+        </p>
+        <a href="https://www.mathheads.com" target="_blank" class="checknow4">Check Now</a>
+    </div>
+    <div class="illustration"><div class="inner"></div></div>
+</div>
+    
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="prev" width="56.898" height="91" viewBox="0 0 56.898 91"><path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(0 91) rotate(-90)" fill="#fff"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="next" width="56.898" height="91" viewBox="0 0 56.898 91"><path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(56.898) rotate(90)" fill="#fff"/></svg>
+            <div class="trail">
+                    <div class="box1 active">1</div>
+                    <div class="box2">2</div>
+                    <div class="box3">3</div>
+                    <div class="box4">4</div>
+                    <div class="box5">5</div>
+            </div>
+        </div>   
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+        
+       
+        <script src="script.js"></script>
+    </body>
+</html>
+<!-- partial -->
+  <script  src="script.js"></script>
+
+</body>
+</html>
+<!-- partial -->
+  <script  src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!-- career_roadmaps.php -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <!-- Add any additional styles for career roadmaps here -->
+    <style>
+        /* Add your styles for career roadmaps here */
+        body {
+            background: #f7f7f7; /* Background color or pattern */
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            opacity: 0.95;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden; /* Add overflow hidden to contain sliding options */
+        }
+
+        .career-roadmap {
+            display: none;
+            transition: transform 0.5s ease-in-out; /* Add sliding transition */
+        }
+
+        .visible-roadmap {
+            display: block;
+            transform: translateX(0); /* Initially, show the first roadmap */
+        }
+
+        .slide-right {
+            transform: translateX(100%); /* Slide to the right */
+        }
+
+        .slide-left {
+            transform: translateX(-100%); /* Slide to the left */
+        }
+
+        /* Add your background styles here */
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <!-- Add other navigation items here -->
+            <li><a href="student_dashboard.php">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="assesments.php">Assessment</a></li>
+            <li><a href="applied_job.php">Jobs Applied</a></li>
+            <li><a href="games.php">Educational Games</a></li>
+            <li><a href="resume_builder.php">Resume Builder</a></li>
+            <li><a href="career_roadmaps.php">Career Roadmaps</a></li>
+        </ul>
+    </nav>
+
+    <!-- Your existing HTML content -->
+
+    <div class="container">
+        <h2>Career Roadmaps</h2>
+        
+        <!-- Computer Science Roadmap -->
+        <div class="career-roadmap visible-roadmap" id="cs-roadmap">
+            <h3>Computer Science Roadmap</h3>
+            <p>Explore the roadmap for a successful career in Computer Science:</p>
+            <iframe src="https://example.com/cs-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Accounting Roadmap -->
+        <div class="career-roadmap" id="accounting-roadmap">
+            <h3>Accounting Roadmap</h3>
+            <p>Discover the steps to excel in the field of Accounting:</p>
+            <iframe src="https://example.com/accounting-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Botany Roadmap -->
+        <div class="career-roadmap" id="botany-roadmap">
+            <h3>Botany Roadmap</h3>
+            <p>Follow this roadmap for a rewarding career in Botany:</p>
+            <iframe src="https://example.com/botany-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Electrical Engineering Roadmap -->
+        <div class="career-roadmap" id="ee-roadmap">
+            <h3>Electrical Engineering Roadmap</h3>
+            <p>Chart your course for success in Electrical Engineering:</p>
+            <iframe src="https://example.com/ee-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Graphic Design Roadmap -->
+        <div class="career-roadmap" id="graphic-design-roadmap">
+            <h3>Graphic Design Roadmap</h3>
+            <p>Navigate your way to becoming a skilled Graphic Designer:</p>
+            <iframe src="https://example.com/graphic-design-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Nursing Roadmap -->
+        <div class="career-roadmap" id="nursing-roadmap">
+            <h3>Nursing Roadmap</h3>
+            <p>Plan your path to a fulfilling career in Nursing:</p>
+            <iframe src="https://example.com/nursing-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Environmental Science Roadmap -->
+        <div class="career-roadmap" id="environmental-science-roadmap">
+            <h3>Environmental Science Roadmap</h3>
+            <p>Explore the journey to a meaningful career in Environmental Science:</p>
+            <iframe src="https://example.com/environmental-science-roadmap" width="100%" height="400px"></iframe>
+        </div>
+
+        <!-- Buttons for navigation -->
+        <button id="prevRoadmap">Previous Roadmap</button>
+        <button id="nextRoadmap">Next Roadmap</button>
+    </div>
+
+    <!-- Your existing scripts or include additional scripts if needed -->
+
+    <!-- JavaScript to handle sliding options -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const roadmaps = document.querySelectorAll('.career-roadmap');
+            let currentRoadmapIndex = 0;
+
+            // Function to show the selected roadmap
+            function showRoadmap(index) {
+                roadmaps.forEach((roadmap, i) => {
+                    roadmap.classList.remove('visible-roadmap', 'slide-left', 'slide-right');
+                    if (i === index) {
+                        roadmap.classList.add('visible-roadmap');
+                    }
+                });
+            }
+
+            // Function to slide to the next roadmap
+            function slideRight() {
+                if (currentRoadmapIndex < roadmaps.length - 1) {
+                    currentRoadmapIndex++;
+                } else {
+                    currentRoadmapIndex = 0;
+                }
+                showRoadmap(currentRoadmapIndex);
+            }
+
+            // Function to slide to the previous roadmap
+            function slideLeft() {
+                if (currentRoadmapIndex > 0) {
+                    currentRoadmapIndex--;
+                } else {
+                    currentRoadmapIndex = roadmaps.length - 1;
+                }
+                showRoadmap(currentRoadmapIndex);
+            }
+
+            // Initial display of the first roadmap
+            showRoadmap(currentRoadmapIndex);
+
+            // Event listeners for navigation
+            document.getElementById('nextRoadmap').addEventListener('click', slideRight);
+            document.getElementById('prevRoadmap').addEventListener('click', slideLeft);
+        });
+    </script>
+</body>
+</html>

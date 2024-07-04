@@ -1,0 +1,103 @@
+/* Reset and Basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Typography */
+h1 {
+  font-size: 36px;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+strong {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Buttons */
+button[type="submit"],
+.view-applicants {
+  background: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+.view-applicants:hover {
+  background-color: #2980b9;
+}
+
+/* Forms */
+input[type="text"],
+textarea,
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  color: #333;
+}
+
+.form-field:focus-within {
+  border-color: #3498db;
+}
+
+/* Job Posts */
+.job-post {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding-top: 20px;
+  color: #7f8c8d;
+}

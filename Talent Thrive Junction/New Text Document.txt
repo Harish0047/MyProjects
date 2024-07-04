@@ -1,0 +1,73 @@
+<?php
+session_start();
+
+include 'config.php';
+
+// Check if the student ID is set in the session
+if (isset($_SESSION['student_id'])) {
+    $studentId = $_SESSION['student_id'];
+
+    // Retrieve student details
+    $sqlStudent = "SELECT * FROM students WHERE id = $studentId";
+    $resultStudent = $conn->query($sqlStudent);
+
+    if ($resultStudent->num_rows > 0) {
+        $studentData = $resultStudent->fetch_assoc();
+        $studentProfile = $studentData['profile']; // Assuming you have a 'profile' column in your students table
+
+        // Retrieve all job posts
+        $sqlAllJobs = "SELECT * FROM companies";
+        $resultAllJobs = $conn->query($sqlAllJobs);
+
+        echo '<div class="container student-dashboard">';
+        echo '<header class="student-dashboard">';
+        echo '<h1 class="student-dashboard">Welcome, ' . $studentData['name'] . '!</h1>';
+        echo '</header>';
+        echo '<main class="student-dashboard">';
+        
+        if ($resultAllJobs->num_rows > 0) {
+            echo '<h2 class="student-dashboard">Available Jobs</h2>';
+            echo '<ul class="job-posts">';
+            while ($companyData = $resultAllJobs->fetch_assoc()) {
+                $jobPosts = json_decode($companyData['jobposts'], true);
+
+                // Check if any job matches the student's profile
+                foreach ($jobPosts as $jobId => $job) {
+                    if (strpos(strtolower($job['requirements']), strtolower($studentProfile)) !== false) {
+                        // Display job post
+                        echo '<li class="job-post">';
+                        echo '<strong class="job-post-title">' . $job['title'] . '</strong>';
+                        echo '<p class="job-post-description">' . $job['description'] . '</p>';
+                        echo '<p class="job-post-location">Location: ' . $job['location'] . '</p>';
+                        echo '<p class="job-post-salary">Salary: ' . $job['salary'] . '</p>';
+                        echo '<form action="apply_job.php" method="POST">';
+                        echo '<input type="hidden" name="job_id" value="' . $jobId . '">';
+                        echo '<button type="submit">Apply</button>';
+                        echo '</form>';
+                        echo '</li>';
+                    }
+                }
+            }
+            echo '</ul>';
+        } else {
+            echo '<p class="student-dashboard">No jobs available at the moment.</p>';
+        }
+
+        echo '</main>';
+        echo '<footer class="student-dashboard">';
+        echo '<p class="student-dashboard">&copy; 2023 Placement Cell</p>';
+        echo '</footer>';
+        echo '</div>';
+    } else {
+        // Redirect to login page if student ID is not valid
+        header("Location: student_login.php");
+        exit();
+    }
+} else {
+    // Redirect to login page if student ID is not set in the session
+    header("Location: student_login.php");
+    exit();
+}
+
+$conn->close();
+?>
